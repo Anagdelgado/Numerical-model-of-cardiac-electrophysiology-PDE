@@ -59,12 +59,13 @@ nelem=length(R(:,1));
     for i1=1:nelem
         fprintf(f2,' %4i ', 12);
     end
+    fprintf(f2,'\n');
 %%        
 load('pde_electrophysiology.mat') 
  for i1=1:length(t)
     f3=fopen('./results/results.vtk','w');
     fprintf(f3,'%s %8i\n','POINT_DATA', nnode);
-    fprintf(f3,'SCALARS GROUPS float\n');
+    fprintf(f3,'SCALARS VOLTAGE float\n');
     fprintf(f3,'LOOKUP_TABLE default\n');
     for i2=1:nnode
         fprintf(f3,'%8i\n', V_vtk(i2,i1) );
